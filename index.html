@@ -13,8 +13,7 @@
     media="only screen and (max-device-width: 480px)" >
   <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
   <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
-  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
-
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  
   
   <!-- Grab CDN jQuery, fall back to local if offline -->
   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
@@ -48,7 +47,8 @@
   <article data-timings="">
     <h3>This was created using RShiny for Coursera&#39;s Developing Data Products project</h3>
 
-<p>Date created: May 18, 2018</p>
+<pre><code>## [1] &quot;Date created: May 18, 2018&quot;
+</code></pre>
 
   </article>
   <!-- Presenter Notes -->
@@ -60,6 +60,10 @@
   </hgroup>
   <article data-timings="">
     <h3>The UI prompts the user for the weight (slider) with the corresponding unit of measure (dropdown). The main panel will display the converted weight. If the selected unit of measure was kilos then the main panel will show the weight converted to pounds (and vice-versa).</h3>
+
+<pre><code class="r">output$outval &lt;- renderText(if (input$unit ==&quot;kg&quot;) { input$unitval * 2.2046 } 
+    else { input$unitval / 2.2046 })
+</code></pre>
 
   </article>
   <!-- Presenter Notes -->

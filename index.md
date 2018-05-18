@@ -15,13 +15,20 @@ knit        : slidify::knit2slides
 
 
 
-Date created: May 18, 2018
+```
+## [1] "Date created: May 18, 2018"
+```
 
 --- .class "Slide3"
 
 ## About the Application
 ### The UI prompts the user for the weight (slider) with the corresponding unit of measure (dropdown). The main panel will display the converted weight. If the selected unit of measure was kilos then the main panel will show the weight converted to pounds (and vice-versa).
 
+
+```r
+output$outval <- renderText(if (input$unit =="kg") { input$unitval * 2.2046 } 
+    else { input$unitval / 2.2046 })
+```
 
 --- .class #Slide4
 
@@ -35,8 +42,4 @@ Date created: May 18, 2018
 ## Thank You
 * Shiny App: https://vfelipe.shinyapps.io/CourseraDDP-RShiny/
 * Source: https://github.com/vfelipe/coursera-ddp
-
-
-
-
 
