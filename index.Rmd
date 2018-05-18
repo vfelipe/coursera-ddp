@@ -14,14 +14,19 @@ knit        : slidify::knit2slides
 ### This was created using RShiny for Coursera's Developing Data Products project
 
 
-
-`r as.character(paste("Date created:", format(Sys.Date(), "%B %d, %Y")))`
+```{r, echo=FALSE, eval=TRUE}
+print(as.character(paste("Date created:", format(Sys.Date(), "%B %d, %Y"))))
+```
 
 --- .class "Slide3"
 
 ## About the Application
 ### The UI prompts the user for the weight (slider) with the corresponding unit of measure (dropdown). The main panel will display the converted weight. If the selected unit of measure was kilos then the main panel will show the weight converted to pounds (and vice-versa).
 
+```{r, echo=TRUE, eval=FALSE}
+output$outval <- renderText(if (input$unit =="kg") { input$unitval * 2.2046 } 
+    else { input$unitval / 2.2046 })
+```
 
 --- .class #Slide4
 
@@ -35,8 +40,4 @@ knit        : slidify::knit2slides
 ## Thank You
 * Shiny App: https://vfelipe.shinyapps.io/CourseraDDP-RShiny/
 * Source: https://github.com/vfelipe/coursera-ddp
-
-
-
-
 
